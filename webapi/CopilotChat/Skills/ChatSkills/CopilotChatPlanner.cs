@@ -6,6 +6,7 @@ using Microsoft.SemanticKernel.Planning;
 using Microsoft.SemanticKernel.SkillDefinition;
 using SemanticKernel.Service.CopilotChat.Models;
 using SemanticKernel.Service.CopilotChat.Options;
+using Microsoft.SemanticKernel.Planning.Sequential;
 
 namespace SemanticKernel.Service.CopilotChat.Skills.ChatSkills;
 
@@ -55,7 +56,8 @@ public class CopilotChatPlanner
 
         if (this._plannerOptions?.Type == PlanType.Sequential)
         {
-            return new SequentialPlanner(this.Kernel).CreatePlanAsync(goal);
+            //return new SequentialPlanner(this.Kernel).CreatePlanAsync(goal);
+            return new SequentialPlanner(this.Kernel, new SequentialPlannerConfig { RelevancyThreshold = 0.75 }).CreatePlanAsync(goal);
         }
 
         return new ActionPlanner(this.Kernel).CreatePlanAsync(goal);

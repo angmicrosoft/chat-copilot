@@ -10,7 +10,8 @@
       "appName": "{{appName}}",
       "resourceGroup": "{{resourceGroup}}",
       "subscription-id": "{{subscription-id}}",
-      "env": "production"
+      "env": "production",
+      "tenantId": "{{tenantId}}"
     }
   }
 }
