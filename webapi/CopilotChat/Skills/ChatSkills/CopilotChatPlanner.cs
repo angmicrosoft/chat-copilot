@@ -63,3 +63,4 @@ public class CopilotChatPlanner
         return new ActionPlanner(this.Kernel).CreatePlanAsync(goal);
     }
 }
+
